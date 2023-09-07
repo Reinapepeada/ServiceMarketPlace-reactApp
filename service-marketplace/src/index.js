@@ -16,7 +16,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
@@ -29,11 +29,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <StrictMode>
-      <RouterProvider router={router} />
-      {/* <h1>Hello, world!</h1>
+      <HomeLayout>
+        <RouterProvider router={router} />
+        <h1>Hello, world!</h1>
         <Counter />
         <hr />
-        <Input /> */}
+        <Input />
+      </HomeLayout>
     </StrictMode>
   </>
 );
