@@ -1,5 +1,7 @@
 import { Form } from "react-router-dom";
 
+
+
 export default function Contact() {
   const contact = {
     first: "Your",
@@ -9,6 +11,7 @@ export default function Contact() {
     notes: "Some notes",
     favorite: true,
   };
+
 
   return (
     <div id="contact">
@@ -51,15 +54,7 @@ export default function Contact() {
           <Form
             method="post"
             action="destroy"
-            onSubmit={(event) => {
-              if (
-                !confirm(
-                  "Please confirm you want to delete this record."
-                )
-              ) {
-                event.preventDefault();
-              }
-            }}
+            
           >
             <button type="submit">Delete</button>
           </Form>

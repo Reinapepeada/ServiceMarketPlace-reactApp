@@ -2,14 +2,12 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Counter from "./components/CounterButton";
-import Input from "./components/InputAge";
 import HomeLayout from "./components/layouts/HomeLayout";
 
 // Importo Rutas hacia las diferentes paginas
-import Root from "./routes/root";
+import Root from "./pages/root";
 import ErrorPage from "./error-page";
-import Contact from "./routes/contact";
+import Contact from "./pages/contact";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -18,24 +16,40 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/login",
+        element: <Root />,
+      },
+      {
+        path: "/register",
+        element: <Root />,
+      },],
   },
   {
     path: "contacts/:contactId",
     element: <Contact />,
+    children: [
+      {
+        path: "details",
+        element: <Contact />,
+      }],
+    
   },
+  
 ]);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <StrictMode>
+      
       <HomeLayout>
         <RouterProvider router={router} />
-        <h1>Hello, world!</h1>
-        <Counter />
-        <hr />
-        <Input />
       </HomeLayout>
+
+      
     </StrictMode>
   </>
 );
